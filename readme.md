@@ -1,11 +1,11 @@
-### Short URL
+# Short URL
 
-# Learning best practices to implement in Flask Project
+#### Learning best practices to implement in Flask Project
 
-# Connected PostgreSQL in Project & built a API skeleton, Pending Items to implement:
+#### Connected PostgreSQL in Project & built a API skeleton, Pending Items to implement:
 
-# Apache Zookeeper
+#### Apache Zookeeper
 
-# Redis
+#### Redis
 
-# K8s (Optional)
+#### K8s (Optional)
