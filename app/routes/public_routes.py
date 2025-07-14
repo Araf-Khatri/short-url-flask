@@ -2,6 +2,7 @@ from flask import Blueprint
 from sqlalchemy import select, delete
 from ..db.models import Url
 from ..db import db
+from ..kazoo import counter
 from ..utils.response_mapper import success_response, error_response
 from ..utils.create_short_url import create_short_url
 from ..utils.request_mapper import post_request_mapper
@@ -18,8 +19,13 @@ def generate_short_url(data):
     elif not long_url.startswith("https://"):
       return error_response("Please add valid & secure url.", 400)
     
-    short_url = create_short_url(2)
-    record = Url(short_url=short_url, long_url=long_url)
+    number = counter.get_number_from_range()
+    if not number:
+      raise Exception("Unique number not found!")
+    print(number)
+    short_url = create_short_url(number)
+    
+    record = Url(short_url=short_url, long_url=long_url, base10_integer=number)
     url = record.to_dict()
     db.add(record)
     db.commit()
@@ -44,7 +50,6 @@ def get_all_urls():
 @public_blueprint.route("/urls", methods=["DELETE"])
 def delete_url_record():
   db.execute(delete(Url))
-  # db_cursor.execute("DELETE from urls")
   return success_response()
 
 # Step 1: connect with sql

@@ -12,4 +12,6 @@ class Config:
 
     DATEBASE_URI = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
-
+    ZOOKEEPER_HOST = os.getenv("ZOOKEEPER_HOST")
+    ZOOKEEPER_PORT = os.getenv("ZOOKEEPER_PORT")
+    ZOOKEEPER_RANGE_GAP = 10000
