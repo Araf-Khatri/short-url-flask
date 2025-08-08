@@ -10,4 +10,3 @@ app.config.from_object(Config)
 Base.metadata.create_all(bind=engine)
 
 app_routes(app)
-

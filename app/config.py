@@ -15,3 +15,6 @@ class Config:
     ZOOKEEPER_HOST = os.getenv("ZOOKEEPER_HOST")
     ZOOKEEPER_PORT = os.getenv("ZOOKEEPER_PORT")
     ZOOKEEPER_RANGE_GAP = 10000
+
+    REDIS_HOST = os.getenv("REDIS_HOST")
+    REDIS_PORT = os.getenv("REDIS_PORT")

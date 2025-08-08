@@ -8,7 +8,6 @@ class Url(Base):
   id = Column(Integer, autoincrement=True, primary_key=True, index=True)
   short_url = Column(String, nullable=False, unique=True)
   long_url = Column(String, nullable=False)
-  base10_integer = Column(Integer, nullable=False)
   created_at = Column(DateTime, nullable=False, default=datetime.now(timezone.utc))
   expires_at = Column(DateTime, nullable=True)
 
